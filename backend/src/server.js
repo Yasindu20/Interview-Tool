@@ -1,8 +1,9 @@
 import express from "express";
-import { ENV } from "./lib/env.js";
 import path from "path";
 
-const app = express()
+import { ENV } from "./lib/env.js";
+
+const app = express();
 
 const __dirname = path.resolve();
 
@@ -25,8 +26,6 @@ if (ENV.NODE_ENV === "production") {
     });
 }
 
-const PORT = ENV.PORT || process.env.PORT || 3000;
-
-app.listen(PORT, "0.0.0.0", () => {
-    console.log(`Server os running on port ${PORT}`);
+app.listen(ENV.PORT, () => {
+    console.log("Server os running on this port: ", ENV.PORT);
 });
