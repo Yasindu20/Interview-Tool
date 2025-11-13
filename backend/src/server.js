@@ -24,3 +24,9 @@ if (ENV.NODE_ENV === "production") {
         res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
     });
 }
+
+const PORT = ENV.PORT || process.env.PORT || 3000;
+
+app.listen(PORT, "0.0.0.0", () => {
+    console.log(`Server os running on port ${PORT}`);
+});
